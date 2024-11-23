@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DesignPatterns", "DesignPatterns.vcxproj", "{EB9B3408-C411-475A-B717-32BA178A2362}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GTests", "GTests\GTests.vcxproj", "{908CFEA5-41DC-4ABF-903A-C2F2EF5949A7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GTests", "tests\GTests.vcxproj", "{908CFEA5-41DC-4ABF-903A-C2F2EF5949A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
