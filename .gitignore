@@ -1,4 +1,7 @@
 .vs
 
+builds
+intDir
+
 *.filters
 *.user
