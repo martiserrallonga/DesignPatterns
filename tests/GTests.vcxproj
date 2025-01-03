@@ -35,18 +35,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>builds\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>intDir\$(Platform)\$(Configuration)\</IntDir>
+    <ExternalIncludePath>../src/;../src/SOLID/;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>builds\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>intDir\$(Platform)\$(Configuration)\</IntDir>
+    <ExternalIncludePath>../src/;../src/SOLID/;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>builds\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>intDir\$(Platform)\$(Configuration)\</IntDir>
+    <ExternalIncludePath>../src/;../src/SOLID/;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>builds\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>intDir\$(Platform)\$(Configuration)\</IntDir>
+    <ExternalIncludePath>../src/;../src/SOLID/;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -116,6 +120,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SOLID\SingleResponsibilityTest.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
