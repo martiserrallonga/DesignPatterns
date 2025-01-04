@@ -22,6 +22,7 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\SOLID\LiskovSubstitution.h" />
     <ClInclude Include="src\SOLID\OpenClosed.h" />
     <ClInclude Include="src\SOLID\SingleResponsibility.h" />
   </ItemGroup>
