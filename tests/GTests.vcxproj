@@ -120,6 +120,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SOLID\DependencyInversionTest.cpp" />
     <ClCompile Include="SOLID\LiskovSubstitutionTest.cpp" />
     <ClCompile Include="SOLID\OpenClosedTest.cpp" />
     <ClCompile Include="SOLID\SingleResponsibilityTest.cpp" />
