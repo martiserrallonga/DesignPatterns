@@ -1,6 +1,4 @@
 #include "OpenClosed.h"
-
-#include <iostream>
 #include <gtest/gtest.h>
 
 TEST(OpenClosed, NotClosedToModification) {
