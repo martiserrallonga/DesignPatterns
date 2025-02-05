@@ -1,5 +1,4 @@
 #include "SingleResponsibility.h"
-
 #include <gtest/gtest.h>
 
 TEST(SingleResponsibility, BadSeparation) {
