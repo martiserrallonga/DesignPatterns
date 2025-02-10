@@ -45,7 +45,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>builds\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>intDir\$(Platform)\$(Configuration)\</IntDir>
-    <ExternalIncludePath>../src/;../src/SOLID/;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>../src/;../src/Creational/;../src/SOLID/;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>builds\$(Platform)\$(Configuration)\</OutDir>
@@ -120,6 +120,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Creational\BuilderTest.cpp" />
     <ClCompile Include="SOLID\DependencyInversionTest.cpp" />
     <ClCompile Include="SOLID\LiskovSubstitutionTest.cpp" />
     <ClCompile Include="SOLID\OpenClosedTest.cpp" />
