@@ -7,13 +7,7 @@ class HtmlElement
 {
 public:
 	friend class HtmlBuilder;
-	HtmlElement() = default;
-
-	explicit HtmlElement(std::string name, std::string text = "")
-		: _name(std::move(name))
-		, _text(std::move(text))
-	{
-	}
+	static HtmlBuilder create(std::string root);
 
 	std::string str(const int indentLevel = 0) const {
 		std::ostringstream oss;
@@ -33,6 +27,14 @@ public:
 	}
 
 private:
+	HtmlElement() = default;
+
+	explicit HtmlElement(std::string name, std::string text = "")
+		: _name(std::move(name))
+		, _text(std::move(text))
+	{
+	}
+
 	std::string _name;
 	std::string _text;
 	std::vector<HtmlElement> _elements;
@@ -47,14 +49,22 @@ public:
 	{
 	}
 
-	void addChild(std::string name, std::string text = "") {
-		_root._elements.emplace_back(std::move(name), std::move(text));
+	HtmlBuilder& addChild(std::string name, std::string text = "") {
+		_root._elements.emplace_back(HtmlElement(std::move(name), std::move(text)));
+		return *this;
 	}
 
-	std::string str() const {
-		return _root.str();
-	}
+	HtmlElement build() { return _root; }
+
+	std::string str() const { return _root.str(); } // Can be deleted 
+
+	// ReSharper disable once CppNonExplicitConversionOperator
+	operator HtmlElement() const { return _root; } // Is replaced by build()
 
 private:
 	HtmlElement _root;
 };
+
+inline HtmlBuilder HtmlElement::create(std::string root) {
+	return HtmlBuilder(std::move(root));
+}
