@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Creational\Builder.h" />
+    <ClInclude Include="src\Creational\BuilderGroovyStyle.h" />
     <ClInclude Include="src\SOLID\DependencyInversion.h" />
     <ClInclude Include="src\SOLID\InterfaceSegregation.h" />
     <ClInclude Include="src\SOLID\LiskovSubstitution.h" />
