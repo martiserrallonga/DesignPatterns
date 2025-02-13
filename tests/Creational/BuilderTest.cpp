@@ -1,4 +1,5 @@
 #include "Builder.h"
+#include "BuilderGroovyStyle.h"
 #include <gtest/gtest.h>
 
 namespace
@@ -40,4 +41,19 @@ TEST(Builder, FluidBuilders) {
 
 	HtmlElement element = HtmlElement::create("ul").addChild("li", "hello").addChild("li", "world").build();
 	EXPECT_EQ(htmlExample, element.str());
+}
+
+TEST(Builder, GroovyStyle) {
+	const std::string htmlExample = "<p>\n"
+		"<img src=\"http://example.com\"/>\n"
+		"</p>\n";
+
+	const Tag groovyTag =
+		P{
+			Img { "http://example.com"  }
+	};
+
+	std::ostringstream oss;
+	oss << groovyTag;
+	EXPECT_EQ(htmlExample, oss.str());
 }
