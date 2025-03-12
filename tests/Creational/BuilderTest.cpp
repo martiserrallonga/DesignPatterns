@@ -1,4 +1,5 @@
 #include "Builder.h"
+#include "BuilderFacade.h"
 #include "BuilderGroovyStyle.h"
 #include <gtest/gtest.h>
 
@@ -56,4 +57,30 @@ TEST(Builder, GroovyStyle) {
 	std::ostringstream oss;
 	oss << groovyTag;
 	EXPECT_EQ(htmlExample, oss.str());
+}
+
+// ReSharper disable StringLiteralTypo
+TEST(Builder, BuilderFacade) {
+	const std::string personExample =
+		"address: Javastraat 42, "
+		"postCode: 1094 KM, "
+		"city: Amsterdam, "
+		"company: Github, "
+		"position: Developer, "
+		"income: 50000";
+
+	const Person2 person = Person2::create()
+		.lives()
+		.at("Javastraat 42")
+		.withPostCode("1094 KM")
+		.in("Amsterdam")
+		.works()
+		.at("Github")
+		.asA("Developer")
+		.earning(50e3);
+
+	std::ostringstream oss;
+	oss << person;
+
+	EXPECT_EQ(personExample, oss.str());
 }
