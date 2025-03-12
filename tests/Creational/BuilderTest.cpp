@@ -1,4 +1,5 @@
 #include "Builder.h"
+#include "BuilderExercise.h"
 #include "BuilderFacade.h"
 #include "BuilderGroovyStyle.h"
 #include <gtest/gtest.h>
@@ -83,4 +84,19 @@ TEST(Builder, BuilderFacade) {
 	oss << person;
 
 	EXPECT_EQ(personExample, oss.str());
+}
+
+TEST(Builder, BuilderExercise) {
+	const std::string codeExample = "class Person\n" // NOLINT(clang-diagnostic-invalid-pp-token)
+		"{\n"
+		"  string name;\n"
+		"  int age;\n"
+		"};";
+
+	const auto builder = CodeBuilder{ "Person" }.addField("name", "string").addField("age", "int");
+
+	std::ostringstream oss;
+	oss << builder;
+
+	EXPECT_EQ(codeExample, oss.str());
 }
