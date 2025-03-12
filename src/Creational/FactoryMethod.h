@@ -5,6 +5,8 @@
 
 class Point
 {
+	friend class PointFactory;
+
 public:
 	static Point NewCartesian(float x, float y) {
 		return { x, y };
@@ -23,4 +25,16 @@ private:
 
 	float _x;
 	float _y;
+};
+
+class PointFactory
+{
+public:
+	static Point Cartesian(float x, float y) {
+		return { x, y };
+	}
+
+	static Point Polar(const float r, const float angle) {
+		return { r * cos(angle), r * sin(angle) };
+	}
 };
