@@ -20,6 +20,20 @@ public:
 		return os << "x: " << obj._x << " y: " << obj._y;
 	}
 
+	class Factory
+	{
+	public:
+		static Point Cartesian(float x, float y) {
+			return { x, y };
+		}
+
+		static Point Polar(const float r, const float angle) {
+			return { r * cos(angle), r * sin(angle) };
+		}
+	};
+
+	static Factory factory;
+
 private:
 	Point(const float x, const float y) : _x(x), _y(y) {}
 
