@@ -1,4 +1,5 @@
 #pragma once
+#include <functional>
 #include <map>
 #include <sstream>
 
@@ -70,4 +71,30 @@ public:
 
 private:
 	std::map<std::string, std::unique_ptr<HotDrinkFactory>> _factories;
+};
+
+class DrinkWithVolumeFactory
+{
+public:
+	DrinkWithVolumeFactory() {
+		_factories.try_emplace("tea", [] {
+			auto tea = std::make_unique<Tea>();
+			tea->prepare(200);
+			return tea;
+			});
+		_factories.try_emplace("coffee", [] {
+			auto coffee = std::make_unique<Coffee>();
+			coffee->prepare(50);
+			return coffee;
+			});
+	}
+
+	std::unique_ptr<HotDrink> make(const std::string& type) {
+		const auto it = _factories.find(type);
+		if (it == _factories.end()) return nullptr;
+		return it->second();
+	}
+
+private:
+	std::map <std::string, std::function<std::unique_ptr<HotDrink>()>> _factories;
 };

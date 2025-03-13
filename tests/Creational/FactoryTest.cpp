@@ -31,3 +31,11 @@ TEST(Factory, AbstractFactory) {
 	Coffee coffeeExample;
 	EXPECT_EQ(drink->prepare(200), coffeeExample.prepare(200));
 }
+
+TEST(Factory, FunctionalFactory) {
+	DrinkWithVolumeFactory factory;
+	const auto drink = factory.make("coffee");
+
+	Coffee coffeeExample;
+	EXPECT_EQ(drink->prepare(50), coffeeExample.prepare(50));
+}
