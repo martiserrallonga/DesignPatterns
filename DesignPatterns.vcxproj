@@ -23,6 +23,7 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Creational\AbstractFactory.h" />
     <ClInclude Include="src\Creational\Builder.h" />
     <ClInclude Include="src\Creational\BuilderExercise.h" />
     <ClInclude Include="src\Creational\BuilderFacade.h" />

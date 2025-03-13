@@ -1,4 +1,5 @@
 #include "Creational/FactoryMethod.h"
+#include "Creational/AbstractFactory.h"
 #include <gtest/gtest.h>
 
 
@@ -21,4 +22,12 @@ TEST(Factory, InnerFactory) {
 	const auto polarPoint = Point::Factory::Polar(5.f, angle);
 	const auto cartesianPoint = Point::Factory::Cartesian(4.f, 3.f);
 	EXPECT_EQ((std::ostringstream() << polarPoint).str(), (std::ostringstream() << cartesianPoint).str());
+}
+
+TEST(Factory, AbstractFactory) {
+	DrinkFactory factory;
+	const auto drink = factory.make("coffee");
+
+	Coffee coffeeExample;
+	EXPECT_EQ(drink->prepare(200), coffeeExample.prepare(200));
 }
