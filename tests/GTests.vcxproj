@@ -123,6 +123,7 @@
     <ClCompile Include="..\src\Creational\BuilderFacade.cpp" />
     <ClCompile Include="Creational\BuilderTest.cpp" />
     <ClCompile Include="Creational\FactoryTest.cpp" />
+    <ClCompile Include="Creational\Prototype.cpp" />
     <ClCompile Include="SOLID\DependencyInversionTest.cpp" />
     <ClCompile Include="SOLID\LiskovSubstitutionTest.cpp" />
     <ClCompile Include="SOLID\OpenClosedTest.cpp" />
