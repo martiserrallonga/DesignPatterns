@@ -4,6 +4,8 @@
 
 class Weapon
 {
+	friend class SwordedSkeletonFactory;
+
 public:
 	Weapon(std::string type, const int damage)
 		: _type(std::move(type))
@@ -29,6 +31,8 @@ private:
 
 class Enemy  // NOLINT(cppcoreguidelines-special-member-functions)
 {
+	friend class SwordedSkeletonFactory;
+
 public:
 	Enemy(std::string type, const int health, std::unique_ptr<Weapon> weapon)
 		: _type(std::move(type))
@@ -47,7 +51,7 @@ public:
 	friend bool operator==(const Enemy& lhs, const Enemy& rhs) {
 		return lhs._type == rhs._type
 			&& lhs._health == rhs._health
-			&& *(lhs._weapon) == *(rhs._weapon);
+			&& *lhs._weapon == *rhs._weapon;
 	}
 
 	const std::unique_ptr<Weapon>& getWeapon() {
@@ -69,3 +73,19 @@ private:
 	std::unique_ptr<Weapon> _weapon;
 };
 
+class SwordedSkeletonFactory
+{
+public:
+	static std::unique_ptr<Enemy> create(const int health, const int damage) {
+		static Enemy prototype("skeleton", 0, std::make_unique<Weapon>("sword", 0));
+		return create(health, damage, prototype);
+	}
+
+private:
+	static std::unique_ptr<Enemy> create(const int health, const int damage, const Enemy& prototype) {
+		auto result = std::make_unique<Enemy>(prototype);
+		result->_health = health;
+		result->_weapon->_damage = damage;
+		return result;
+	}
+};
