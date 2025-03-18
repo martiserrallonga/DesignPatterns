@@ -3,8 +3,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
 class CodeBuilder
 {
 public:
@@ -13,12 +11,12 @@ public:
 		: _name(className) {
 	}
 
-	CodeBuilder& addField(const string& name, const string& type) {
+	CodeBuilder& addField(const std::string& name, const std::string& type) {
 		_fields.emplace_back(name, type);
 		return *this;
 	}
 
-	friend ostream& operator<<(ostream& os, const CodeBuilder& obj)
+	friend std::ostream& operator<<(std::ostream& os, const CodeBuilder& obj)
 	{
 		os << "class " << obj._name << "\n";
 		os << "{\n";
