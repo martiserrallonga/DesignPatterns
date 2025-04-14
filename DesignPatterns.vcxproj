@@ -29,6 +29,7 @@
     <ClInclude Include="src\Creational\BuilderFacade.h" />
     <ClInclude Include="src\Creational\BuilderGroovyStyle.h" />
     <ClInclude Include="src\Creational\FactoryMethod.h" />
+    <ClInclude Include="src\Creational\Prototype.h" />
     <ClInclude Include="src\SOLID\DependencyInversion.h" />
     <ClInclude Include="src\SOLID\InterfaceSegregation.h" />
     <ClInclude Include="src\SOLID\LiskovSubstitution.h" />
